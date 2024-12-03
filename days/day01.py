@@ -9,11 +9,11 @@ def parse(path: str) -> tuple[list[int], list[int]]:
     return list(map(list, zip(*lines)))
 
 
-def part1(xs: list[int], ys: list[int]):
+def part1(xs: list[int], ys: list[int]) -> int:
     return sum(map(lambda xy: abs(xy[0] - xy[1]), zip(sorted(xs), sorted(ys))))
 
 
-def part2(xs: list[int], ys: list[int]):
+def part2(xs: list[int], ys: list[int]) -> int:
     x_cn, y_cn = Counter(xs), Counter(ys)
     return sum(map(lambda kv: kv[1] * kv[0] * y_cn.get(kv[0], 0), x_cn.items()))
 
